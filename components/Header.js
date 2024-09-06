@@ -79,7 +79,7 @@ const Header = () => {
 				<button
 					className='btn btn-primary'
 					type='button'
-					onClick={() => router.push('/sign-in')}
+					onClick={() => router.push('/auth/sign-in')}
 				>
 					Get Started
 				</button>

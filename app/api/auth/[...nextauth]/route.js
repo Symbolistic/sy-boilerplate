@@ -5,6 +5,7 @@ import { connectToDB } from '@/utils/database';
 import { connectMongoClient } from '@/utils/connectMongoClient';
 import User from '@/models/user';
 import EmailProvider from 'next-auth/providers/email';
+import { clearStaleTokens } from '@/utils/clearStaleTokensServerAction';
 
 console.log({
 	clientId: process.env.GOOGLE_ID,
@@ -43,6 +44,8 @@ const handler = NextAuth({
 	callbacks: {
 		async jwt({ token, user }) {
 			if (user) {
+				await clearStaleTokens();
+
 				return {
 					...token,
 					id: user.id,

@@ -27,7 +27,7 @@ const Hero = () => {
 					</p>
 					<button
 						className='btn btn-primary'
-						onClick={() => router.push('/sign-in')}
+						onClick={() => router.push('/auth/sign-in')}
 					>
 						Get Started
 					</button>
